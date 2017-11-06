@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
-    <button @click="show('hello')">say hello</button>
-  </div>
+  <div>Vue demo! This is header!</div>
 </template>
 
 <script>
 export default {
-  name: 'demo',
+  name: 'header',
   data: function() {
     return {
       msg: '12345'
@@ -22,8 +19,6 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+
 
 </style>

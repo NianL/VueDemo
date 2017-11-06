@@ -1,34 +1,47 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1 v-text="title"></h1>
-    <router-view/>
+    <el-container>
+      <el-header><header-info></header-info></el-header>
+      <el-container style="height:800px;">
+        <el-aside style="width:200px;"><left-menu></left-menu></el-aside>
+        <el-main><router-view/></el-main>
+      </el-container>
+      <el-footer><footer-info></footer-info></el-footer>
+    </el-container>
   </div>
 </template>
 
 <script>
+import Header from '@/components/common/Header'
+import Footer from '@/components/common/Footer'
+import LeftMenu from '@/components/common/LeftMenu'
+
 export default {
   name: 'app',
   data: function(){
-    return {
-      title:"liun demo"
-    }
+    return {}
   },
-  data2 (){
-    return {
-      title:"liun demo"
-    }
+  mounted:function(){
+
+  },
+  components:{
+    headerInfo:Header,
+    footerInfo:Footer,
+    leftMenu:LeftMenu
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{ 
+  margin: 0px; 
+  padding:0px; 
+}
+.el-header, .el-footer {
+  background-color: #B3C0D1;
+
+}
+.el-main{
+  background: #eee;
 }
 </style>
