@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <el-header><header-info></header-info></el-header>
-      <el-container style="height:800px;">
+      <el-container>
         <el-aside style="width:200px;"><left-menu></left-menu></el-aside>
         <el-main><router-view/></el-main>
       </el-container>
@@ -38,7 +38,7 @@ body{
   padding:0px; 
 }
 .el-header, .el-footer {
-  background-color: #B3C0D1;
+  background-color: #ddd;
 
 }
 .el-main{

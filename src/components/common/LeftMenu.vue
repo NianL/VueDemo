@@ -24,7 +24,7 @@
 		</el-menu-item-group>
 	  </el-submenu>
 
-	  <router-link to="/home">
+	  <router-link to="/">
 	  	<el-menu-item index="3">
 	      <span slot="title">回到首页</span>
 		</el-menu-item>
