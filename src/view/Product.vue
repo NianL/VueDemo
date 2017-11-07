@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'product',
@@ -52,12 +53,22 @@ export default {
 		productList:[]
     }
   },
+  mounted:function(){
+  	this.getProductList()
+
+  },
   watch:{
   	dialogFormVisible:function(){
   		this.productFromInfo = {}
   	}
   },
   methods:{
+  	getProductList:function(){
+
+  		// axios.get("/testdata/productData.json").then(_ => {
+  		// 	console.log(_)
+  		// })
+  	},
   	addProduct:function () {
   		var data = {
   			name:this.productFromInfo.name,

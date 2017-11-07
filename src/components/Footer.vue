@@ -1,5 +1,5 @@
 <template>
-  <div>footer</div>
+  <div>{{msg}}</div>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
   name: 'footer',
   data: function() {
     return {
-      msg: '12345'
+      msg: 'by liun'
     }
   },
   methods:{
@@ -19,8 +19,9 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+div{
+  line-height: 20px;
+  font-size: 12px;
+  color: #666;
 }
-
 </style>
