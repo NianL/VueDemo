@@ -1,6 +1,6 @@
 {
-	total:10,
-	dataList:[
+	"total":10,
+	"dataList":[
 		{"name":"11111","category":"category_1","createTime":"2017/11/6 下午5:48:02"},
 		{"name":"222","category":"category_1","createTime":"2017/11/6 下午5:48:06"},
 		{"name":"3333","createTime":"2017/11/6 下午5:48:09"},

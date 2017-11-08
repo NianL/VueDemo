@@ -1,16 +1,15 @@
 <template>
 	<div>
 		<el-menu style="border-right:none;"
-		default-active="0"
+		:default-active="$route.name"
 		:router="true"
 		class="el-menu-vertical-demo">
 			<el-submenu index="1">
 				<template slot="title">
 					<i class="el-icon-menu"></i>
-					<span>产品管理</span>
+					<span>表格数据</span>
 				</template>
-				<el-menu-item index="category">分类管理</el-menu-item>
-				<el-menu-item index="product">信息管理</el-menu-item>
+				<el-menu-item index="product">增删改查</el-menu-item>
 			</el-submenu>
 
 			<el-submenu index="2">
@@ -25,7 +24,7 @@
 				</el-menu-item-group>
 			</el-submenu>
 
-			<el-menu-item index="/">
+			<el-menu-item index="home">
 				<span slot="title">回到首页</span>
 			</el-menu-item>
 		</el-menu>

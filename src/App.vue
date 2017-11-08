@@ -37,11 +37,10 @@ export default {
   height: 100%;
   width: 100%;
 }
-.el-header, .el-footer {
-  background-color: #ddd;
-
+.el-main {
+  background-color: #efefef;
 }
-.el-main{
-  background: #eee;
+.el-header,.el-footer {
+  background-color: #ccc;
 }
 </style>
