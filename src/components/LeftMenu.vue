@@ -1,32 +1,24 @@
 <template>
 	<div>
-		<el-menu style="border-right:none;"
-		:default-active="$route.name"
-		:router="true"
-		class="el-menu-vertical-demo">
-			<el-submenu index="1">
-				<template slot="title">
-					<i class="el-icon-menu"></i>
-					<span>表格数据</span>
+		<el-menu style="border-right:none;" :default-active="$route.name" :router="true" class="el-menu-vertical-demo">
+			<template v-for='(item,index) in menuData'>
+				<template v-if='item.children == null || item.children.length == 0'>
+					<el-menu-item :index='item.url' @click='clickMenu(item)' :key="index">
+                        <i :class='item.icon'></i><span slot='title'>{{item.name}}</span>
+                    </el-menu-item>
 				</template>
-				<el-menu-item index="product">增删改查</el-menu-item>
-			</el-submenu>
-
-			<el-submenu index="2">
-				<template slot="title">
-					<i class="el-icon-document"></i>
-					<span>目录demo2</span>
+				<template v-else>
+					<el-submenu :index='item.url' :key="index">
+                        <template slot='title'>
+                            <i :class='item.icon'></i><span>{{item.name}}</span>
+                        </template>
+                        <el-menu-item :index='chil.url' :key='index' v-for='(chil,index) in item.children'>
+							<i :class='chil.icon'></i>
+							<span>{{chil.name}}</span>
+						</el-menu-item>
+                    </el-submenu>
 				</template>
-				<el-menu-item-group>
-					<template slot="title">目录2</template>
-					<el-menu-item index="2-1">2.1</el-menu-item>
-					<el-menu-item index="2-2">2.2</el-menu-item>
-				</el-menu-item-group>
-			</el-submenu>
-
-			<el-menu-item index="home">
-				<span slot="title">回到首页</span>
-			</el-menu-item>
+			</template>
 		</el-menu>
 	</div>
 </template>
@@ -36,7 +28,31 @@
 export default {
   data: function(){
     return {
-      
+		menuData:[
+			{
+				name: "数据管理",
+				icon: "el-icon-menu",
+				url: "tableDemo",
+				children: [
+					{ name: "增删改查", icon: null, url: "/product" },
+				]
+			},
+			{
+				name: "目录demo",
+				icon: "el-icon-menu",
+				url: "upload",
+				children: [
+					{ name: "目录1.1", icon: null, url: "/1.1" },
+					{ name: "目录1.2", icon: null, url: "/1.2" }
+				]
+			},
+			{
+				name: "其他管理",
+				icon: "el-icon-document",
+				url: "else",
+				children: null
+			}
+		]
     }
   }
 }
