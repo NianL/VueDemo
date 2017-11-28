@@ -80,7 +80,7 @@ export default {
       window.localStorage.setItem(key,val)
     },
   	getData(key){
-      var val = localStorage[key]
+      var val = window.localStorage[key]
       if (val) this.productList = JSON.parse(val)
     },
     submitSearch(){
