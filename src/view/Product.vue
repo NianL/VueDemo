@@ -18,6 +18,13 @@
       </template>
     </el-table-column>
   </el-table>
+  <template v-if="paging.total!=0">
+      <el-pagination layout="total,prev,pager,next,jumper" 
+          @current-change="pagingClick" 
+          :current-page="paging.page" :page-size="paging.rows" :total="paging.total">
+      </el-pagination>
+  </template>
+
   <el-dialog :title="operate.title" :visible.sync="dialogFormVisible" :close-on-click-modal="false" width="500px">
 	  <div>
 	  	<el-form :model="productFromInfo" ref="productFromInfo" label-width="120px" :rules="rules">
@@ -62,10 +69,15 @@ export default {
           { required: true, message: '请选择产品分类', trigger: 'change' }
         ]
       },
-  		productData:[],
   		formLabelWidth:"120px",
   		productList:[],
-      txtSearchKey:""
+      txtSearchKey:"",
+      paging:{
+        loading: true,
+        page: 1,
+        rows: 3,
+        total: 0,
+      }
     }
   },
   mounted(){
@@ -74,6 +86,7 @@ export default {
   watch:{
     productList(val){
       this.setData(this.dataKey, JSON.stringify(val))
+      this.paging.total = this.productList.length
     }
   },
   methods:{
@@ -144,7 +157,6 @@ export default {
       });
   	},
   	deleteProduct(index){
-      var _index = index
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -154,7 +166,7 @@ export default {
           type: 'success',
           message: '删除成功!'
         });
-        this.productList.splice(_index,1)
+        this.productList.splice(index,1)
       }).catch(() => {
         this.$message({
           type: 'info',
@@ -164,6 +176,9 @@ export default {
     },
     detailShow(index){
       this.$router.push({ path: "/product/" + index})
+    },
+    pagingClick(){
+
     }
   }
 }
