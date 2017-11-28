@@ -14,6 +14,7 @@
       <template slot-scope="scope">
         <el-button @click="deleteProduct(scope.$index)" type="text" size="small">删除</el-button>
         <el-button @click="showUpdateDialog(scope.$index)" type="text" size="small">编辑</el-button>
+        <el-button @click="detailShow(scope.$index)" type="text" size="small">详情</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -160,7 +161,10 @@ export default {
           message: '已取消删除'
         });          
       });
-  	}
+    },
+    detailShow(index){
+      this.$router.push({ path: "/product/" + index})
+    }
   }
 }
 </script>
