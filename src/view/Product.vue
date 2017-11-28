@@ -162,16 +162,10 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        this.$message({
-          type: 'success',
-          message: '删除成功!'
-        });
+        this.$message.success('删除成功!')
         this.productList.splice(index,1)
       }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
-        });          
+        this.$message.info('已取消删除')         
       });
     },
     detailShow(index){

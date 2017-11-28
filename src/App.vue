@@ -24,6 +24,9 @@ export default {
   mounted:function(){
 
   },
+  methods:{
+    
+  },
   components:{
     headerInfo:Header,
     footerInfo:Footer,
